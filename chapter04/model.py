@@ -1,17 +1,34 @@
 # -*- coding: utf-8 -*-
+import peewee_async
 from peewee import *
 from peewee import Model
 from datetime import datetime
 
 
-db = MySQLDatabase('message', host="127.0.0.1", port=3306, user="root", password="root")
+db = MySQLDatabase('message', host="127.0.0.1", port=3306, user="root", password="root0503")
+
+database = peewee_async.MySQLDatabase(
+    database='message',
+    user='root',
+    host='127.0.0.1',
+    port='3306',
+    password='root0503',
+    charset='utf-8'
+)
+# Create async models manager:
+
+objects = peewee_async.Manager(database)
+
+# No need for sync anymore!
+
+database.set_allow_sync(False)
 
 
 class BaseModel(Model):
     add_time = DateTimeField(default=datetime.now(), verbose_name="添加时间")
 
     class Meta:
-        database = db
+        database = database
 
 
 class Supplier(BaseModel):
