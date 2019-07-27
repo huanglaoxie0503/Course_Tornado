@@ -58,7 +58,7 @@ settings = {
     "db": {
         "host": "127.0.0.1",
         "user": "root",
-        "password": "root",
+        "password": "root0503",
         "name": "message",
         "port": "3306"
     }

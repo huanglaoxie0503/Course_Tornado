@@ -1,5 +1,4 @@
 # -*- coding: utf-8 -*-
-import asyncio
 import aiomysql
 
 from tornado import gen, httpclient, ioloop
@@ -19,6 +18,7 @@ async def test_example():
 
 
 if __name__ == '__main__':
+    # import asyncio
     # loop = asyncio.get_event_loop()
     # loop.run_until_complete(test_example())
 
